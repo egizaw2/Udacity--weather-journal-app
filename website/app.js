@@ -2,7 +2,7 @@ let proxy = "https://cors-anywhere.herokuapp.com/";
 let apiKey = "&us&units=metric&appid=74c9bbd083d4540a7eedccb3df9535cd";
 
 let mainURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
-//document.getElementById('generate').addEventListener('click', performAction);
+
 const btn = document.getElementById('generate')
 const date = document.getElementById('date');
     const temp = document.getElementById('temp');
@@ -14,10 +14,10 @@ const feelings = document.getElementById('feelings');
 
 const zip = document.getElementById('zip');  
 
-    const getWeather = async (mainURL, zip, key) => {
+    const getWeather = async (mainURL, zip, apiKey) => {
     
         try {
-            const req = await fetch(mainURL + zip + key)
+            const req = await fetch(mainURL + zip + apiKey)
             const data = await req.json()
             const { main: { temp },
             } = data
@@ -74,3 +74,4 @@ btn.addEventListener('click', () => {
             console.log("error", error)
     }
 })
+
